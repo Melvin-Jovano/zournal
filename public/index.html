@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Zournal</title>
+	<link rel="stylesheet" type="text/css" href="/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/iconfont/material-icons.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="manifest" href="/manifest.json">
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script src="/js/push.min.js"></script>
+	<script src="/js/api.js"></script>
+	<script src="/js/search.js"></script>
+</head>
+<body class="grey lighten-2">
+
+<div id="updts" style="width: 100vw;height: 100vh;z-index: 6;position: fixed" class="valign-wrapper">
+	<div class="row">
+		<center>
+		<div class="card" style="padding: 30px">
+				<div class="col s12 m12 l12 xl12">
+					Update <br><br>
+					<form onsubmit="return false;">
+						<div class="row">
+							<div class="col s6 m6 l6 xl6">
+								<span class="left">Name :</span><br>
+								<input class="input" required="" type="text" id="nameU"><br><br>
+							</div>
+
+							<div class="col s6 m6 l6 xl6">
+								<span class="left">Title :</span><br>
+								<input class="input" required="" type="text" id="titleU"><br><br>
+							</div>
+						</div>
+
+						<div class="col s12 m12 l12 xl12">
+							<span class="left">Note :</span><br>
+							<input class="input" style="width: 100%!important" required="" type="text" id="noteU"><br><br>
+						</div>
+						<center>
+						<button class="red btn-large left" id="closeU" onclick="$('#updts').hide();$('#navs').show();">Close</button>
+						<button class="red btn-large right" id="updt">Update</button>
+						</center>
+					</form>
+				</div>
+			</div>
+			</center>
+		</div>
+</div>
+
+<div id="logsign" style="width: 100vw;height: 100vh;" class="red valign-wrapper">
+	<div class="row">
+		<center>
+		<div class="card" style="padding: 30px">
+				<div class="col s12 m12 l12 xl12">
+					Zournal <br><br>
+					<form onsubmit="return false;">
+						<input class="input" required="" type="text" id="usernameL" placeholder="Username"><br><br>
+						<input class="input" required="" type="text" id="passwordL" placeholder="Password"><br><br>
+						<center>
+						<button class="red btn-large" id="sign">Sign-In</button>&emsp;
+						<button class="red btn-large" id="login">Log-In</button>
+						</center>
+					</form>
+				</div>
+			</div>
+			</center>
+		</div>
+</div>
+
+<!-- Profile -->
+		<div id="profile" class="modal">
+				<div class="modal-content center">
+					<p class="black-text">My Profile</p>
+					<div class="divider"></div>
+					<div class="row">
+						<div class="col s12 m12 l12 xl12">
+							<center><img src="img/prof.jpg" width="50%"></center>
+							<p class="center-align"><b><i>Melvin Jovano</i></b></p>
+							<i class="date">"Hey There Im Using WhatsApp"</i>
+						</div>
+					</div>
+				</div>
+		</div>
+		<!-- Profile -->
+
+<div class="navbar-fixed" id="boxWallpaper">
+	<nav role="navigation" class="N/A transparent z-depth-0">
+				<div class="wallpaper">
+					<div class="boxes1"></div>
+					<div class="boxes2"></div>
+					<div class="boxes3"></div>
+					<div class="boxes4"></div>
+					<div class="boxes5"></div>
+					<div class="boxes6"></div>
+				</div>
+	</nav>
+</div>
+
+<div id="lockScreen" style="z-index: 3;position: fixed;width: 100vw;height: 100vh" class="color red fad white-text">
+<img id="wallpaperLockscreen1" src="https://melpinchan.000webhostapp.com/configBeta/img/wallpaper1.gif" alt="No Connection..." style="position: absolute;width: 100vw;height: 100vh;background-repeat: no-repeat;">
+<img id="wallpaperLockscreen2" src="https://melpinchan.000webhostapp.com/configBeta/img/wallpaper2.gif" alt="No Connection..." style="position: absolute;width: 100vw;height: 100vh;background-repeat: no-repeat;">
+<img id="wallpaperLockscreen3" src="https://melpinchan.000webhostapp.com/configBeta/img/wallpaper3.gif" alt="No Connection..." style="position: absolute;width: 100vw;height: 100vh;background-repeat: no-repeat;">
+<img id="wallpaperLockscreen4" src="https://melpinchan.000webhostapp.com/configBeta/img/wallpaper4.gif" alt="No Connection..." style="position: absolute;width: 100vw;height: 100vh;background-repeat: no-repeat;">
+<img id="wallpaperLockscreen5" src="https://melpinchan.000webhostapp.com/configBeta/img/wallpaper5.gif" alt="No Connection..." style="position: absolute;width: 100vw;height: 100vh;background-repeat: no-repeat;">
+<img id="wallpaperLockscreen6" src="https://melpinchan.000webhostapp.com/configBeta/img/wallpaper6.gif" alt="No Connection..." style="position: absolute;width: 100vw;height: 100vh;background-repeat: no-repeat;">
+		<div style="z-index: 4;position: fixed;padding: 20px;" class="fad white-text">
+			<br>
+			<h1><span id="dayL"></span><span id="time"></span></h1>
+			<h3><span id="dateL"></span> <span id="monthL"></span> <span id="yearL"></span></h3>
+			<h4 id="weatherL"></h4>
+			
+		</div>
+		<div style="left:0;bottom: 0;position: absolute;padding-left: 20px">
+			<i class="fad white-text" style="font-size: 2.5vw!important;">Tap Button To Change Image<br>
+			Hold Button To Unlock</i><br>
+		</div>
+
+		<div style="bottom:10%;margin-left:50%;position: absolute;">
+			<div style="z-index: 4;" id="lock" class="color red darken-1 btn-floating btn-large waves-effect pulse">
+				<i class="material-icons">fingerprint</i>
+			</div><br><br>
+		</div>
+	</div>
+
+<div id="allContent">
+	<div class="navbar-fixed" id="navs">
+	<nav role="navigation" class="red">
+		<div class="left" id="timeD"></div>
+		<div class="center brand-logo"><span id="nameDshbrd"></span>'s&nbsp;<span class="white-text lighten-5" id="typography">Z</span>ournal</div>
+		<div class="nav-wrapper container">
+				<a class="center red modal-trigger btn-floating btn-large halfway-fab waves-effect pulse" href="#add">
+					<i class="material-icons">add</i>
+				</a>
+		</div>
+	</nav>
+</div>
+	<div class="container row" id="refresh">
+		<div class="row">
+			<div class="col s12 m12 l12 xl12">
+				<div class="badge valign-wrapper red rounded upper left">&nbsp;
+			<i class="medium material-icons" id="signal">sync</i>&nbsp;
+			<span id="signalStatus">Online&nbsp;</span>
+		</div>
+
+		<div id="foundData" class="badge valign-wrapper red rounded upper left">&nbsp;
+			<i class="medium material-icons" id="foundLabel">assignment</i>&nbsp;
+			<span id="foundStatus">
+				<span id="founds">0</span>&nbsp;Journal's Found&nbsp;
+			</span>
+		</div>
+
+		<!-- Profile -->
+		<a class="modal-trigger badge valign-wrapper red rounded upper left" style="transform: scale(1)!important;" href="#profile">&nbsp;
+			<i class="medium material-icons">face</i>&nbsp;
+		</a>
+		<!-- Profile -->
+
+			</div>
+			<div class="col s12 m12 l12 xl12">
+				<div onclick="$('#weatherReport').slideDown();" class="modal-trigger badge valign-wrapper red rounded upper left">&nbsp;
+					<i class="medium material-icons" id="weather">cloud</i>&nbsp;
+				</div>
+
+				<div onclick="$('#lockScreen').fadeIn(500);$('#navs').hide();" class="badge valign-wrapper red rounded upper left">&nbsp;
+					<i class="medium material-icons">lock</i>&nbsp;
+				</div>
+
+				<div id="searchNote" class="badge valign-wrapper red rounded upper searchC left input-field valign-wrapper">&nbsp;
+						<i id="searchLabel" class="medium material-icons">search</i>
+						<input autocomplete="off" type="text" name="input" class="search validate" id="searchInput" placeholder="Search Title...">&nbsp;
+				</div><br>
+				
+				<div id="notFound" class="col s12 m12 l12 xl12 valign-wrapper grey-text">
+					<i class="material-icons medium">book</i>&nbsp;No Note Found
+				</div>
+
+				<div id="noInternet" class="col s12 m12 l12 xl12 valign-wrapper grey-text">
+					<i class="material-icons medium">signal_wifi_off</i>&nbsp;Turn On Your Data And&nbsp;<span onclick='API()'><em><b>Click Here</b></em></span>
+				</div>
+			</div>
+		</div>
+		
+		<div id="loader" class="col s12 m12 l12 xl12 valign-wrapper">
+			<div class="preloader-wrapper big center active">
+				<div class="spinner-layer spinner-red-only">
+					<div class="circle-clipper left">
+						<div class="circle"></div>
+					</div>
+					<div class="gap-patch">
+						<div class="circle"></div>
+					</div>
+					<div class="circle-clipper right">
+						<div class="circle"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="weatherReport" class="col s12 m12 l12 xl12">
+			<div class="card red darken-1 center z-depth-4">
+				<div class="card-content center">
+					<p class="white-text">Weather Forecast Today</p>
+					<div class="divider"></div>
+					<div id="report" class="row">
+						<div class="col s6 m6 l6 xl6">
+							<p class="white-text" id="status"></p>
+							<img alt="Weather Icon" width="30%" id="weatherImg" src=""><br>
+							<p class="center-align white-text" id="description"></p>
+							<span id="temperature" class="white-text"></span>&emsp;
+							<span id="wind" class="white-text"></span>
+						</div>
+
+						<div class="white-text left-align col s6 m6 l6 xl6">
+							<input id="findCity" style="border:none!important;" class="input white-text" type="text" placeholder="Find A City Here..."><br>
+							<span id="country"></span>, <span id="city"></span><br><br>
+							<div class="date">
+								<span>Humidity : <span id="humidity"></span></span><br><br>
+								<span>Pressure : <span id="pressure"></span></span><br>
+							</div>
+							
+						</div>
+					</div>
+					
+				</div>
+					<div onclick="toggleWeather()" class="btn-floating btn-large z-depth-2 red darken-2">
+						<i class="material-icons">close</i>
+					</div>
+			</div>
+		</div>
+
+		<div id="api-container"></div>
+
+	<div id="add" class="modal">
+		<div class="row">
+			<div class="col s1"></div>
+			<div class="col s10 center">
+				<br>
+				<form action="" enctype="multipart/form-data" method="post" id="addDats">
+						<div class="field-input">
+						<label for="inputF" class="waves-effect">
+							<img src="img/profile.jpg" id="preview" class="z-depth-3 responsive-img" alt="Image" srcset="">
+						</label>
+
+						<input class="input" id="inputF" type="file" name="img" accept="image/*" />
+
+							<p class="date center">* Tap To Change Photo *</p>
+						</div><br>
+							<div class="container">
+
+							<div class="inputCS input-field">
+								<input class="input validate" id="name" required type="text" name="name" />
+								<label class="labelAdd" for="name">Your Name</label>
+								<span class="helper-text left">Required</span>
+
+							</div><br>
+							<div class="inputCS input-field">
+								<input class="input validate" id="title" required type="text" name="title" />
+								<label class="labelAdd" for="title">Title</label>
+								<span class="helper-text left">Required</span>
+
+							</div><br>
+							<div class="inputCS input-field">
+								<textarea id="note" class="materialize-textarea input validate" name="note" /></textarea>
+								<label class="labelAdd" for="note">Note</label>
+								<span class="helper-text left">Optional</span>
+							</div><br><br>
+							</div>
+
+						<div class="center">
+							<div id="addData" class="btn z-depth-4 red pulse">
+								<i class="material-icons">send</i>
+						</div>
+						</div>
+				</form>
+				<br>
+			</div>
+		</div>
+	</div>
+</div>
+
+<input type="hidden" id="userN">
+<input type="hidden" id="passN">
+
+	<script type="text/javascript" src="/js/logsign.js"></script>
+	<script type="text/javascript" src="/js/materialize.min.js"></script>
+	<script type="text/javascript" src="/js/app.js"></script>
+	<script type="text/javascript" src="/js/weather.js"></script>
+	<script type="text/javascript" src="/js/lockscreen.js"></script>
+	<script type="text/javascript" src="/js/updel.js"></script>
+	<script>
+		getWeather("medan");
+		locked();
+		$("#loader").hide();
+		$("#searchInput").hide();
+		$("#notFound").hide();
+		$("#signalStatus").hide();
+		$("#foundStatus").hide();
+		$("#weatherStatus").hide();
+		$("#weatherReport").show()
+		$("#lockScreen").hide();
+		$("#wallpaperLockscreen").hide();
+		$("#allContent").hide();
+		$("#logsign").show();
+		$("#wallpaperLockscreen1").hide();
+		$("#wallpaperLockscreen2").hide();
+        $("#wallpaperLockscreen3").hide();
+        $("#wallpaperLockscreen4").hide();
+        $("#wallpaperLockscreen5").hide();
+        $("#wallpaperLockscreen6").hide();
+        $("#updts").hide();
+
+		function toggleLoader() {
+			$("#loader").toggle();
+		};
+		
+	</script>
+</body>
+</html>

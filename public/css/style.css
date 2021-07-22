@@ -1,0 +1,233 @@
+body{
+	font-size: 3vw;
+}
+.searchC{
+	color: white;
+}
+#signal{
+	animation: rotate 2s infinite linear;
+}
+#loader, #notFound, #noInternet{
+	height: 25vh;
+	justify-content: center;
+}
+.no_scroll{
+	overflow: hidden;
+}
+.search{
+	font-size: 3vw!important;
+	color: white!important;
+}
+.inputCS{
+	font-size: 3vw!important;
+}
+.search:focus{
+	outline: none!important;
+	box-shadow: none!important;
+	border-bottom: none!important;
+}
+.modal::-webkit-scrollbar{
+    width: 0px;
+}
+#lockScreen {
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.modal::-webkit-scrollbar{
+    width: 0px;
+}
+.upper{
+	border-radius: 15px;
+	margin-top:15px;
+	margin-left: 10px;
+	padding: 4px;
+}
+#announcement{
+	margin-top: 10px;
+}
+.badge{
+	color: white;
+}
+.modal{
+    border-right: 10px solid #F44336;
+}
+.card{
+	border-radius: 10px;
+	padding-bottom: 60px;
+	overflow: hidden;
+}
+.toast{
+	font-size: 3vw;
+}
+.responsive-img{
+	border-radius: 10px;
+}
+.date{
+	font-size: 2.3vw;
+}
+.divider{
+	margin: 10px;
+}
+#inputF{
+	display: none;
+}
+.helper-text{
+	color: #F44336;
+}
+#preview{
+	border: 5px dashed black;
+	width: 50%;
+	height: 50%;
+	border-radius: 10px;
+}
+#addData{
+	width: 20%;
+}
+.pulse, .btn{
+	transform: scale(2.5);
+}
+.scale2 {
+	transform: scale(2.5);
+	margin-left: 70px;
+	margin-right: 70px;
+}
+.pulse2{
+	transform: scale(3.5);
+	animation: fade 2s;
+}
+.fadein {
+	animation: fade 2s;
+}
+.notif{
+	margin-right: 115px;
+	margin-top: 100px;
+}
+#bold{
+	font-weight: bold;
+}
+#italic{
+	font-style: italic;
+}
+.img-modal{
+	clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+}
+.helper-text{
+	font-size: 2vw!important;
+}
+.labelAdd{
+	font-size: 2.3vw!important;
+}
+.input{
+	font-size: 3vw!important;
+	box-shadow: none!important;
+}
+#searchNote{
+	z-index: 2;
+}
+#typography{
+	font-style: italic;
+	font-weight: bolder;
+
+}
+#boxWallpaper{
+	z-index: -1;
+	position: absolute;
+}
+.wallpaper{
+	position: absolute;
+	z-index: -1;
+	width: 100vw;
+	height: 100vh;
+}
+.boxes1{
+	animation: boxed 35s infinite linear;
+	background-color: grey;
+	width: 85px;
+	margin-left: 5%;
+	height: 85px;
+	position: relative;
+	z-index: -1;
+}
+.boxes2{
+	animation: boxed 25s infinite linear;
+	margin-left: 10%;
+	background-color: grey;
+	width: 45px;
+	height: 45px;
+	position: relative;
+	z-index: -1;
+}
+.boxes3{
+	animation: boxed 30s infinite linear;
+	background-color: grey;
+	margin-left: 30%;
+	width: 120px;
+	height: 120px;
+	position: relative;
+	z-index: -1;
+}
+.boxes4{
+	animation: boxed 50s infinite linear;
+	background-color: grey;
+	margin-left: 80%;
+	width: 320px;
+	height: 320px;
+	position: relative;
+	z-index: -1;
+}
+.boxes5{
+	animation: boxed 35s infinite linear;
+	background-color: grey;
+	margin-left: 45%;
+	width: 220px;
+	height: 220px;
+	position: relative;
+	z-index: -1;
+}
+.boxes6{
+	animation: boxed 45s infinite linear;
+	background-color: grey;
+	margin-left: 5%;
+	width: 270px;
+	height: 270px;
+	position: relative;
+	z-index: -1;
+}
+@keyframes rotate {
+	100%{
+		transform: rotate(-360deg);
+	}
+}
+@keyframes boxed {
+	0%{
+		opacity: 0.5;
+		top: 100%;
+		transform: rotate(0deg);
+	}
+	100%{
+		opacity: 0;
+		top: 0;
+		transform: rotate(720deg);
+	}
+}
+@keyframes scale {
+	0%{
+	}
+	100%{
+		transform: scale(1.5);
+	}
+}
+#weatherImg {
+	animation: scale 2s infinite alternate;
+}
+
+@keyframes fade {
+	0%{
+	}
+	100%{
+		 opacity:0;
+	}
+}
+#weatherImg {
+	animation: scale 2s infinite alternate;
+}
